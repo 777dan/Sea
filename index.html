@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let n = 0;
+        let ship = [0, 0, 0, 1, 1, 1, 0];
+        let g = [""];
+        for (let i = 0; i < g.length; i++) {
+            n++;
+        }
+        let guess; // координата ячейки
+        let hits = 0; // попадания
+        let guesses = 0; // попытки
+        let isSunk = false;
+        let times = 0;
+        while (isSunk == false) {
+            guess = prompt("Ваш выстрел! (введите число от 0 до 6):");
+            times++;
+            g.push(guess);
+            if (guess < 0 || guess > 6) {
+                alert("Введите правильный номер!");
+            }
+            // if (g[n] > 1) {
+            //     alert("Error")
+            // }
+            else {
+                guesses = guesses + 1;
+                if (guess == ship.indexOf(1) || guess == ship.indexOf(1, 4) || guess == ship.indexOf(1, 5)) {
+                    ship[guess] = -1;
+                    alert("Попал!");
+                    // alert(g);
+                    hits = hits + 1;
+                    if (ship[3] != 1 && ship[4] != 1 && ship[5] != 1) {
+                        isSunk = true;
+                        alert("Вы утопили корабль!");
+                    }
+                }
+                else if (g[n] > ship[guess]) {
+                    alert("Error")
+                }
+                else {
+                    alert("Промах!");
+                }
+            }
+        }
+        let stats = "Вы предприняли " + guesses + " попыток, чтобы утопить корабль, " +
+            "что означает, что общая точность была " + (3 / guesses);
+        alert(stats);
+    </script>
+</body>
+
+</html>
