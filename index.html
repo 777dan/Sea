@@ -33,7 +33,7 @@
             // }
             else {
                 guesses = guesses + 1;
-                if (guess == ship.indexOf(1) || guess == ship.indexOf(1, 4) || guess == ship.indexOf(1, 5)) {
+                if (ship[guess] == 1) {
                     ship[guess] = -1;
                     alert("Попал!");
                     // alert(g);
@@ -43,8 +43,8 @@
                         alert("Вы утопили корабль!");
                     }
                 }
-                else if (g[n] > ship[guess]) {
-                    alert("Error")
+                else if (g[n] == guess) {
+                    alert("ВЫ уже стреляли сюда")
                 }
                 else {
                     alert("Промах!");
