@@ -60,6 +60,7 @@
         let s = false;
         let guesses = 0;
         for (let i = 0; i < ship.length; i++) {
+            // for (let n = 0; n < errors[i].length; n++) {
             while (s == false) {
                 guesses = guesses + 1;
                 let question = prompt("Введите число");
@@ -74,7 +75,8 @@
                         s = true;
                     }
                 } else {
-                    if (errors == question) {
+                    if (errors[0] == question || errors[1] == question || errors[2] == question) {
+                        // if (errors[i] == question) {
                         alert("Вы уже стреляли сюда!");
                     } else {
                         alert("Промах");
